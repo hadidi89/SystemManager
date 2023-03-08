@@ -49,6 +49,7 @@ while (true)
         Console.WriteLine("1. Create a new case report");
         Console.WriteLine("2. Update the status of a case");
         Console.WriteLine("3. Delete a case");
+        Console.WriteLine("3. Show the case with comment");
 
         switch (Console.ReadLine())
         {
@@ -65,6 +66,11 @@ while (true)
             case "3":
                 Console.Clear();
                 await menu.DeleteSpecificCaseAsync();
+                break;
+
+            case "4":
+                Console.Clear();
+                await menu.ShowCommentToCaseAsync();
                 break;
 
         }

@@ -16,5 +16,9 @@ namespace SystemManager.Models
         public DateTime CreatedTime { get; set; } = DateTime.Now;
         public string Status { get; set; } = null!;
         public Customers Customer { get; set; } = null!;
+        public string FirstName { get; set; } = null!;
+        public string LastName { get; set; } = null!;
+        public string Email { get; set; } = null!;
+        public string PhoneNumber { get; set; } = null!;
     }
 }
