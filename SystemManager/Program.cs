@@ -4,6 +4,7 @@ var menu = new MenuService();
 
 while (true)
 {
+    Console.Clear();
     Console.WriteLine("Welcome to the Case Reports App!");
 
     Console.WriteLine("1. Are you an Employee");
@@ -18,6 +19,7 @@ while (true)
         Console.WriteLine("2. View a specific case");
         Console.WriteLine("3. Update the status of a case");
         Console.WriteLine("4. Add comment to a case");
+        Console.WriteLine("5. View the case with its comment");
 
         switch (Console.ReadLine())
         {
@@ -40,6 +42,11 @@ while (true)
                 Console.Clear();
                 await menu.AddCommentToCaseAsync();
                 break;
+
+            case "5":
+                Console.Clear();
+                await menu.ShowCommentToCaseAsync();
+                break;
         }
 
     }
@@ -47,9 +54,10 @@ while (true)
     {
         Console.Clear();
         Console.WriteLine("1. Create a new case report");
-        Console.WriteLine("2. Update the status of a case");
-        Console.WriteLine("3. Delete a case");
-        Console.WriteLine("3. Show the case with comment");
+        Console.WriteLine("2. View your case");
+        Console.WriteLine("3. Update your info");
+        Console.WriteLine("4. Delete your case");
+        Console.WriteLine("5. Check comments on your case");
 
         switch (Console.ReadLine())
         {
@@ -60,17 +68,21 @@ while (true)
 
             case "2":
                 Console.Clear();
-                await menu.UpdateSpecificCaseStatusAsync();
+                await menu.ListSpecificCustomerCaseAsync();
                 break;
-
             case "3":
                 Console.Clear();
-                await menu.DeleteSpecificCaseAsync();
+                await menu.UpdateMyInfoCaseAsync();
                 break;
 
             case "4":
                 Console.Clear();
-                await menu.ShowCommentToCaseAsync();
+                await menu.DeleteMyCaseAsync();
+                break;
+
+            case "5":
+                Console.Clear();
+                await menu.ShowCommentOnMyCaseAsync();
                 break;
 
         }
