@@ -66,14 +66,16 @@ namespace SystemManager.Services
             }
             
         }
-        public static async Task DeleteAsync(int id)
+        public static async Task<bool> DeleteAsync(int id)
         {
             var _cases = await _context.Cases.Include(x => x.Customer).FirstOrDefaultAsync(x => x.Id == id);
             if (_cases != null)
             {
                 _context.Remove(_cases);
                 await _context.SaveChangesAsync();
+                return true;
             }
+            return false;
         }
 
         public static async Task AddCommentAsync(int caseId, Comments comment, Employees employee)
@@ -204,14 +206,16 @@ namespace SystemManager.Services
             }
         }
 
-        public static async Task DeleteCustomerAsync(string email)
+        public static async Task<bool> DeleteCustomerAsync(string email)
         {
             var _cases = await _context.Cases.Include(x => x.Customer).FirstOrDefaultAsync(x => x.Customer.Email == email);
             if (_cases != null)
             {
                 _context.Remove(_cases);
                 await _context.SaveChangesAsync();
+                return true;
             }
+            return false;
         }
 
         public static async Task<IEnumerable<Comments>> CheckUpMyCaseAsync(string email)

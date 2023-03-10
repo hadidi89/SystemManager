@@ -97,13 +97,25 @@ internal class MenuService
 
     public async Task DeleteSpecificCaseAsync()
     {
-        Console.WriteLine("Enter the Id case you want to delete");
+        Console.Write("Enter the Id case you want to delete: ");
         var id = Console.ReadLine();
         if (!String.IsNullOrEmpty(id))
         {
-            await CaseService.DeleteAsync(int.Parse(id));
+            bool deleted = await CaseService.DeleteAsync(int.Parse(id));
 
-            Console.WriteLine("Case deleted");
+            if(deleted)
+            {
+                Console.WriteLine("Case deleted");
+            }
+            else
+            {
+                Console.WriteLine("Could not find any case with the given Id address.");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"No Id provided.");
+            Console.WriteLine("");
         }
     }
 
@@ -173,7 +185,6 @@ internal class MenuService
 
         if (caseWithComments.Any())
         {
-            //Console.WriteLine($"Case ID: {caseWithComments.First().CaseId}");
             foreach (var comment in caseWithComments)
             {
                 Console.WriteLine($"Empolyee comments: {comment.Text} (posted on {comment.CreatedAt})");
@@ -356,9 +367,22 @@ internal class MenuService
         var email = Console.ReadLine();
         if (!String.IsNullOrEmpty(email))
         {
-            await CaseService.DeleteCustomerAsync(email);
+            bool deleted = await CaseService.DeleteCustomerAsync(email);
 
-            Console.WriteLine("Case deleted");
+            if(deleted) 
+            {
+                
+                Console.WriteLine("Case deleted");
+            }
+            else
+            {
+                Console.WriteLine("Could not find any case with the given Email address.");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"No Id provided.");
+            Console.WriteLine("");
         }
     }
 
