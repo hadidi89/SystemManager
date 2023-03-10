@@ -1,7 +1,7 @@
 ﻿using SystemManager.Services;
 
-var menu = new MenuService();
-
+var menuCustomer = new MenuCustomerService();
+var menuEmployee = new MenuEmployeeService();
 while (true)
 {
     Console.Clear();
@@ -26,31 +26,31 @@ while (true)
         {
             case "1":
                 Console.Clear();
-                await menu.ListAllCasesAsync();
+                await menuEmployee.ListAllCasesAsync();
                 break;
 
             case "2":
                 Console.Clear();
-                await menu.ListSpecificCaseAsync();
+                await menuEmployee.ListSpecificCaseAsync();
                 break;
 
             case "3":
                 Console.Clear();
-                await menu.UpdateSpecificCaseStatusAsync();
+                await menuEmployee.UpdateSpecificCaseStatusAsync();
                 break;
 
             case "4":
                 Console.Clear();
-                await menu.AddCommentToCaseAsync();
+                await menuEmployee.AddCommentToCaseAsync();
                 break;
 
             case "5":
                 Console.Clear();
-                await menu.ShowCommentToCaseAsync();
+                await menuEmployee.ShowCommentToCaseAsync();
                 break;
             case "6":
                 Console.Clear();
-                await menu.DeleteSpecificCaseAsync();
+                await menuEmployee.DeleteSpecificCaseAsync();
                 break;
         }
 
@@ -60,7 +60,7 @@ while (true)
         Console.Clear();
         Console.WriteLine("1. Create a new case report");
         Console.WriteLine("2. View your case");
-        Console.WriteLine("3. Update your info case");
+        Console.WriteLine("3. Update your case info");
         Console.WriteLine("4. Check comments on your case");
         Console.WriteLine("5. Delete your case");
 
@@ -68,26 +68,26 @@ while (true)
         {
             case "1":
                 Console.Clear();
-                await menu.CreateNewCaseAsync();
+                await menuCustomer.CreateNewCaseAsync();
                 break;
 
             case "2":
                 Console.Clear();
-                await menu.ListSpecificCustomerCaseAsync();
+                await menuCustomer.ListSpecificCustomerCaseAsync();
                 break;
             case "3":
                 Console.Clear();
-                await menu.UpdateMyInfoCaseAsync();
+                await menuCustomer.UpdateMyInfoCaseAsync();
                 break;
 
             case "4":
                 Console.Clear();
-                await menu.DeleteMyCaseAsync();
+                await menuCustomer.DeleteMyCaseAsync();
                 break;
 
             case "5":
                 Console.Clear();
-                await menu.ShowCommentOnMyCaseAsync();
+                await menuCustomer.ShowCommentOnMyCaseAsync();
                 break;
 
         }
