@@ -82,12 +82,12 @@ while (true)
 
             case "4":
                 Console.Clear();
-                await menuCustomer.DeleteMyCaseAsync();
+                await menuCustomer.ShowCommentOnMyCaseAsync();
                 break;
 
             case "5":
                 Console.Clear();
-                await menuCustomer.ShowCommentOnMyCaseAsync();
+                await menuCustomer.DeleteMyCaseAsync();
                 break;
 
         }
